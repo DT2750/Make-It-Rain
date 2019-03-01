@@ -2,7 +2,6 @@ from SpriteManager import sprites
 from Bullet import Bullet
 
 class Player:
-    
     # instance variables
     left = False
     right = False
