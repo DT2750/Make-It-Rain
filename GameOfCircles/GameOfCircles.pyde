@@ -11,8 +11,7 @@ import SpriteManager
 def setup():
     print "Built with Processing Python version " + platform.python_version()
     
-    global player, sprites
-    size(500, 500)
+    size(650, 650)
     playerTeam = 1
     enemyTeam = 2
     player = Player(width/2, height/2, playerTeam)
@@ -22,46 +21,29 @@ def setup():
     SpriteManager.spawn(ScreenSaverBot(200, 100, 4))
     SpriteManager.spawn(JiggleBot(200, 50, 2))
     
-    sprites.append(Enemy(50, 50, enemyTeam))
-    sprites.append(Enemy(150, 150, enemyTeam))
-    sprites.append(Raindrop(30, 230, enemyTeam))
-    sprites.append(Raindrop(70, 70, enemyTeam))
-    sprites.append(Raindrop(110, 110, enemyTeam))
-    sprites.append(Raindrop(150, 150, enemyTeam))
-    sprites.append(Raindrop(190, 190, enemyTeam))
-    sprites.append(Raindrop(400, 400, enemyTeam))
-    sprites.append(Raindrop(290, 290, enemyTeam))
-    sprites.append(Raindrop(310, 310, enemyTeam))
-    sprites.append(Raindrop(350, 350, enemyTeam))
-    sprites.append(Raindrop(390, 390, enemyTeam))
-    sprites.append(JiggleBot(width/2, height/2, enemyTeam))
-    sprites.append(ScreenSaverBot(0, 0, enemyTeam))
+    SpriteManager.spawn(Enemy(0, 0, enemyTeam))
+    SpriteManager.spawn(Enemy(100, 100, enemyTeam))
+    SpriteManager.spawn(Raindrop(50, 50, enemyTeam))
+    SpriteManager.spawn(Raindrop(100, 100, enemyTeam))
+    SpriteManager.spawn(Raindrop(150, 150, enemyTeam))
+    SpriteManager.spawn(Raindrop(200, 200, enemyTeam))
+    SpriteManager.spawn(Raindrop(250, 250, enemyTeam))
+    SpriteManager.spawn(Raindrop(300, 300, enemyTeam))
+    SpriteManager.spawn(Raindrop(450, 450, enemyTeam))
+    SpriteManager.spawn(Raindrop(500, 500, enemyTeam))
+    SpriteManager.spawn(Raindrop(550, 550, enemyTeam))
+    SpriteManager.spawn(Raindrop(600, 600, enemyTeam))
+    SpriteManager.spawn(JiggleBot(width/2, height/2, enemyTeam))
+    SpriteManager.spawn(ScreenSaverBot(0, 0, enemyTeam))
                            
 def draw():
-    global player, sprites
-    background(255)    
-
-    for sprite in sprites:
-        sprite.animate()
-        
-    checkCollisions()
-    
-def checkCollisions():
-    global sprites
-    for a in sprites:
-        for b in sprites:
-            if a.team != b.team:
-                d = (pow(a.x - b.x, 2) + pow(a.y - b.y, 2))**(0.5)
-                r1 = a.diameter / 2
-                r2 = b.diameter / 2
-                if(r1 + r2 > d):
-                    sprites.remove(a)
-                    sprites.remove(b)
+    background(255)
+    SpriteManager.animate()    
     
 def keyPressed():
     global player
-    player.keyDown()    
+    SpriteManager.getPlayer().keyDown()    
         
 def keyReleased():
     global player
-    player.keyUp()
+    SpriteManager.getPlayer().keyUp()
