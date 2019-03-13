@@ -11,13 +11,10 @@ class Player(Sprite):
     down = False
     speed = 5
     diameter = 50  
-    c = color(255,0,0)
+    c = color(28, 33, 160)
     
-    
-    def __init__(self, x, y, team):
-        self.x = width/2 + 20
-        self.y = height
-        self.team = team
+    def handleCollision(self):
+        pass
 
     def move(self):
         if self.left:

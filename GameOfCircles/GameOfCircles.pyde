@@ -14,7 +14,7 @@ def setup():
     size(650, 650)
     playerTeam = 1
     enemyTeam = 2
-    player = Player(width/2, height/2, playerTeam)
+    player = Player(width/2, height - 100, playerTeam)
     
     SpriteManager.setPlayer(player)
     SpriteManager.spawn(JiggleBot(200, 50, 2))

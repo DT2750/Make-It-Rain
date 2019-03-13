@@ -5,7 +5,7 @@ class Enemy(Shooter, Sprite):
         
     speed = 8
     diameter = 50
-    c = color(0,0,255)
+    c = color(188, 30, 13)
         
     def move(self):
         super(Enemy, self).move()

@@ -15,6 +15,8 @@ class Sprite(object):
         
     def display(self):
         fill(self.c)
+        stroke(0)
+        strokeWeight(1)
         ellipse(self.x, self.y, self.diameter, self.diameter)
         
     def animate(self):
