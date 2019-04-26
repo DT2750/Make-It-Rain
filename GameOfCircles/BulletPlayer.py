@@ -1,8 +1,8 @@
 from Sprite import Sprite
-class Bullet(Sprite):
+class BulletPlayer(Sprite):
     
     diameter = 20
-    c = color(245, 91, 91)
+    c = color(127, 238, 130)
         
     def __init__(self, x, y, vector, team):
         self.x = x

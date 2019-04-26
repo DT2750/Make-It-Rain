@@ -1,7 +1,8 @@
 from Sprite import Sprite
 from Shooter import Shooter
+from Armored import Armored
 
-class JiggleBot(Shooter, Sprite):
+class JiggleBot(Armored, Sprite):
     
     speed = 4
     diameter = 75
@@ -13,12 +14,5 @@ class JiggleBot(Shooter, Sprite):
         self.x += random(-self.speed, self.speed)
         self.x = constrain(self.x, 0, width)
         self.y = constrain(self.y, 0, height)
-        
-    def display(self):
-        fill(self.c)
-        stroke(0)
-        strokeWeight(10)
-        ellipse(self.x, self.y, self.diameter, self.diameter)
-        noStroke()
 
         

@@ -1,21 +1,22 @@
 import SpriteManager
-from Bullet import Bullet
+from BulletPlayer import BulletPlayer
 from Sprite import Sprite
+from PlayerShooter import PlayerShooter
 
-class Player(Sprite):
+class Player(Sprite, PlayerShooter):
     
     # instance variables
     left = False
     right = False
     up = False
     down = False
-    speed = 5
+    speed = 7.5
     diameter = 50  
     c = color(28, 33, 160)
     
     def handleCollision(self):
         pass
-
+    
     def move(self):
         if self.left:
             self.x -= self.speed
@@ -28,15 +29,14 @@ class Player(Sprite):
         self.x = constrain(self.x, self.diameter / 2, width - self.diameter / 2)
         self.y = constrain(self.y, self.diameter / 2, height - self.diameter / 2)
         
-    def fire(self):
-        print("FIRE")
+    def mouseDown(self):
+        self.fire(self.aim())
             
     def keyDown(self):
         if key == 's' or key == 'S':
-            SpriteManager.spawn(Bullet(self.x, self.y, PVector(0, 10), self.team))
+            SpriteManager.spawn(BulletPlayer(self.x, self.y, PVector(0, 10), self.team))
         if key == ' ' or key == 'w':
-            SpriteManager.spawn(Bullet(self.x, self.y, PVector(0, -10), self.team))
-            
+            SpriteManager.spawn(BulletPlayer(self.x, self.y, PVector(0, -10), self.team))
             
         if keyCode == LEFT:
             self.left = True
@@ -56,3 +56,4 @@ class Player(Sprite):
             self.up = False
         if keyCode == DOWN:
             self.down = False
+            

@@ -6,7 +6,7 @@ from Sprite import Sprite
 class Shooter:
     
     mark = 0
-    wait = 700
+    wait = 1000
     
     def move(self):
         vector = self.aim(SpriteManager.getPlayer())
@@ -21,7 +21,7 @@ class Shooter:
         if distance == 0:
             distance = 0.01
             
-        magnitude = 7
+        magnitude = 2
         return PVector(xComponent / distance * magnitude, yComponent / distance * magnitude)
     
     def fire(self, vector):

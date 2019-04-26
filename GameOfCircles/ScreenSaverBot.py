@@ -1,12 +1,17 @@
 from Sprite import Sprite
 from Shooter import Shooter
+from Armored import Armored
 
-class ScreenSaverBot(Shooter, Sprite):
+class ScreenSaverBot(Armored, Shooter, Sprite):
     
-    xspeed = 8
+    xspeed = 4
     yspeed = 4
     diameter = 50
-    c = color(193, 99, 226)
+    
+    def __init__(self, x, y, team):
+        super(ScreenSaverBot, self).__init__(x, y, team)
+        self.c = color(random(255), random(255), random(255))
+    
         
     def move(self):
         super(ScreenSaverBot, self).move()
@@ -16,3 +21,5 @@ class ScreenSaverBot(Shooter, Sprite):
             self.xspeed *= -1
         if self.y < 0 or self.y > height:
             self.yspeed *= -1
+            
+    
